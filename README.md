@@ -1,2 +1,1 @@
-# csc475
-CSC 475 - Theory of Languages
+# CSC 475 - Theory of Languages
