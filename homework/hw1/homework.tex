@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{lastpage}
+
+\usepackage{qtree}
+
+\date{}
+\author{Robert Krency}
+\title{Homework 1}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=20mm, top=20mm, right=20mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{CSC 475}
+\rhead{Krency}
+\cfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Document
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{enumerate}
+
+    \item $G = (\{S, A, B\}, \{a,b\}, S, (S \to aA, S \to \lambda, A \to bB, A \to \lambda, B \to \lambda))$
+    \begin{itemize}
+        \item $L(G) = \{\lambda, a, ab\}$
+    \end{itemize}    
+    \Tree[.S [.$\lambda$ ] [.aA a [.abB ab ] ] ]
+
+    \item $G = (\{S\}, \{a,b\}, S, (S \to aSa, S \to bSb, S \to \lambda))$
+    \begin{itemize}
+        \item $L(G) = \{w = xx^R\ : x \in \{a,b\}^*\}$
+    \end{itemize}
+    \Tree[.S [.$\lambda $ ] [.aSa [.aa ] [.aaSaa [.$\vdots$ ] ] [.abSba [.$\vdots$ ] ] ] [.bSb [.bb ] [.baSab [.$\vdots$ ] ] [.bbSbb [.$\vdots$ ] ] ] ]
+
+\end{enumerate}
+
+\end{document}
