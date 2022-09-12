@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{lastpage}
+
+\usepackage{qtree}
+
+\date{}
+\author{Robert Krency}
+\title{Homework 2}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=20mm, top=20mm, right=20mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{CSC 475}
+\rhead{Krency}
+\cfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Document
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{enumerate}
+
+    \item $G = ( \{ S, A \} , \{a, b\} , S, \{ S \rightarrow AaA, A \rightarrow Ab | \lambda \} ) $
+
+    \item $L = \{ (ba)^n\ : n \geq\ 1 \}$
+
+\end{enumerate}
+
+\end{document}
