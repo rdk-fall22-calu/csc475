@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usepackage{qtree}
+
+\date{}
+\author{Robert Krency}
+\title{Homework 3}
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=20mm, top=20mm, right=20mm, bottom=20mm}
+
+% Fancy Header
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{CSC 475}
+\rhead{Krency}
+\cfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.4}
+
+% Document
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\subsection*{Q1 Strings with no more than three $a$}
+
+\begin{figure}[h]
+    \begin{center}
+    \begin{tikzpicture}
+    
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node[initial,state,accepting] (1) at (0,0) {$q_0$};
+            \node[state,accepting] (2) at (2,0) {$q_1$};
+            \node[state,accepting] (3) at (4,0) {$q_2$};
+            \node[state,accepting] (4) at (6,0) {$q_3$};
+            \node[state] (5) at (8,0) {$q_4$};
+        \end{scope}
+    
+        \begin{scope}[every node/.style={fill=white,circle}, every edge/.style={draw=red,very thick}]
+            \path [->] (1) edge [loop above] node {b} (1);
+            \path [->] (1) edge node {a} (2);
+            \path [->] (2) edge [loop above] node {b} (2);
+            \path [->] (2) edge node {a} (3);
+            \path [->] (3) edge [loop above] node {b} (3);
+            \path [->] (3) edge node {a} (4);
+            \path [->] (4) edge [loop above] node {b} (5);
+            \path [->] (4) edge node {a} (5);
+            \path [->] (5) edge [loop above] node {a,b} (5);
+        \end{scope}
+    
+    \end{tikzpicture}
+    
+    \end{center}
+\end{figure}
+
+
+\subsection*{Q2 $L = \{ ab^na^m : n \geq 2, m \geq 3 \} $}
+
+\begin{figure}[h]
+    \begin{center}
+    \begin{tikzpicture}
+    
+        \begin{scope}[every node/.style={circle,thick,draw}]
+            \node[initial,state] (1) at (0,0) {$q_0$};
+            \node[state] (2) at (2,0) {$q_1$};
+            \node[state] (3) at (4,0) {$q_2$};
+            \node[state] (4) at (6,0) {$q_3$};
+            \node[state] (5) at (6,-2) {$q_4$};
+            \node[state] (6) at (6,-4) {$q_5$};
+            \node[state, accepting] (7) at (4,-4) {$q_6$};
+            \node[state] (8) at (4,-2) {$q_7$};
+        \end{scope}
+    
+        \begin{scope}[every node/.style={fill=white,circle}, every edge/.style={draw=red,very thick}]
+            \path [->] (1) edge node {a} (2);
+            \path [->] (2) edge node {b} (3);
+            \path [->] (3) edge node {b} (4);
+            \path [->] (4) edge node {a} (5);
+            \path [->] (5) edge node {a} (6);
+            \path [->] (6) edge node {a} (7);
+            \path [->] (7) edge node {b} (8);
+
+            \path [->] (4) edge [loop above] node {b} (4);
+            \path [->] (7) edge [loop left] node {a} (7);
+            \path [->] (8) edge [loop left] node {a,b} (8);
+
+            \path [->] (1) edge node {b} (8);
+            \path [->] (2) edge node {a} (8);
+            \path [->] (3) edge node {a} (8);
+            \path [->] (5) edge node {b} (8);
+            \path [->] (6) edge node {b} (8);
+
+        \end{scope}
+    
+    \end{tikzpicture}
+    
+    \end{center}
+\end{figure}
+
+
+\end{document}
